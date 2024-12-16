@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookmark</title>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <main class="bookmark-content">
+    <section class="container py-5 position-relative">
+
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="text-center py-2 position-relative mb-3">Bookmarker</h1>
+        <div class="border-dot w-100 p-3 py-4 mt-5 d-flex flex-column justify-content-center align-items-center gap-4">
+          <h2 class="text-center fs-3">
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+          </h2>
+
+          <div class="w-100 d-flex flex-column justify-content-center">
+            <label for="websiteName" class="pb-2 fw-bolder">
+              <i class="fa-solid fa-book-bookmark"></i> Site Name
+            </label>
+            <input oninput="validationData(this , 'massageName');" type="text" placeholder="Bookmark Name" class="form-control" id="websiteName" />
+            <p id="massageName" class="alert alert-danger d-none p-3">Site name must contain at least 3 characters</p>
+          </div>
+
+          <div class="w-100 d-flex flex-column justify-content-center">
+            <label for="websiteURL" class="pb-2 fw-bolder">
+              <i class="fa-solid fa-link"></i> Site URL
+            </label>
+            <input oninput="validationData(this , 'massageURL');" type="text" placeholder="Website URL" class="form-control" id="websiteURL" />
+            <p id="massageURL" class="alert alert-danger d-none p-3">Site URL must be a valid one Star With https://</p>
+          </div>
+
+          <button onclick="addData()" class="btn btn-submit px-5" id="submitButton">Submit</button>
+        </div>
+
+        <table class="mt-4 text-center bg-light table">
+          <thead class="text-capitalize">
+            <th>index</th>
+            <th>Website Name</th>
+            <th>Visit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody id="tableData"></tbody>
+        </table>
+      </div>
+
+        
+      <div id="massageBox" class="massageBox position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none">
+        <div class="massage-conent z-index-10 bg-white p-4 rounded-2 shadow-lg">
+          <header class="massage-header w-100 d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex">
+              <i class="fa-solid fa-circle m-1" style="color: #f15f5d;"></i>
+              <i class="fa-solid fa-circle m-1" style="color: #febe2e;"></i>
+              <i class="fa-solid fa-circle m-1" style="color: #4db748;"></i>
+            </div>
+            <button class="btn border-0" id="closeButton">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </header>
+          <p class="m-0 pb-2">
+            Site Name or Url is not valid, Please follow the rules below :
+          </p>
+          <ol class="icon list-unstyled m-0">
+            <li class="pt-1 mb-2">
+             <i class="fa-solid fa-circle-arrow-right"></i> Site name must contain at least 3 characters
+            </li>
+            <li class="pt-1">
+             <i class="fa-solid fa-circle-arrow-right"></i> Site URL must be a valid one
+            </li>
+          </ol>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="./js/scriot.js"></script>
+</body>
+
+</html>
